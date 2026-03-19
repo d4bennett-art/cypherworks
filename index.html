@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cypher Works — Intelligent Products</title>
+<meta name="description" content="Cypher Works builds intelligent products. Based in Connecticut. cypherworks.ai">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: #ffffff;
+    color: #1A1814;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 48px;
+    border-bottom: 0.5px solid rgba(26,24,20,0.08);
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 100;
+  }
+
+  .wordmark {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1A1814;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  nav a.contact {
+    font-size: 13px;
+    color: rgba(26,24,20,0.45);
+    text-decoration: none;
+  }
+
+  nav a.contact:hover {
+    color: #1A1814;
+  }
+
+  .hero {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 120px 48px 96px;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(26,24,20,0.35);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    color: #1A1814;
+    margin-bottom: 28px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(26,24,20,0.55);
+    line-height: 1.65;
+    max-width: 480px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid rgba(26,24,20,0.08);
+    margin: 0 48px;
+  }
+
+  .products {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(26,24,20,0.35);
+    margin-bottom: 40px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .product-card {
+    border: 0.5px solid rgba(26,24,20,0.1);
+    border-radius: 16px;
+    padding: 32px;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.15s;
+  }
+
+  .product-card:hover {
+    border-color: rgba(26,24,20,0.3);
+  }
+
+  .product-card.coming {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  .product-card.coming:hover {
+    border-color: rgba(26,24,20,0.1);
+  }
+
+  .product-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(26,24,20,0.35);
+    margin-bottom: 16px;
+  }
+
+  .product-card.live .product-tag {
+    color: #1A1814;
+  }
+
+  .product-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1814;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(26,24,20,0.55);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .product-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1A1814;
+  }
+
+  .about {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px 96px;
+    border-top: 0.5px solid rgba(26,24,20,0.08);
+    padding-top: 80px;
+  }
+
+  .about p {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(26,24,20,0.65);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  footer {
+    border-top: 0.5px solid rgba(26,24,20,0.08);
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  footer .wordmark {
+    font-size: 14px;
+  }
+
+  footer p {
+    font-size: 12px;
+    color: rgba(26,24,20,0.3);
+  }
+
+  footer a {
+    font-size: 12px;
+    color: rgba(26,24,20,0.3);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    color: #1A1814;
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 20px 24px; }
+    .hero { padding: 72px 24px 64px; }
+    .divider { margin: 0 24px; }
+    .products { padding: 56px 24px; }
+    .about { padding: 56px 24px 72px; }
+    footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="wordmark">Cypher Works</span>
+  <a href="mailto:hello@cypherworks.ai" class="contact">hello@cypherworks.ai</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">Cypher Works LLC · Delaware</div>
+  <h1>Intelligent<br>products.</h1>
+  <p>We build AI-powered tools that give people a genuine advantage. Starting with the enthusiast car market.</p>
+</section>
+
+<hr class="divider">
+
+<section class="products">
+  <div class="section-label">Products</div>
+  <div class="product-grid">
+
+    <a href="https://beforeyoubid.ai" target="_blank" class="product-card live">
+      <div class="product-tag">Live · 2025</div>
+      <div class="product-name">BeforeYouBid.ai</div>
+      <div class="product-desc">Pre-purchase intelligence for classic and enthusiast car buyers. Eight-section AI report on any listing in under 60 seconds.</div>
+      <div class="product-link">beforeyoubid.ai →</div>
+    </a>
+
+    <div class="product-card coming">
+      <div class="product-tag">Coming</div>
+      <div class="product-name">More coming.</div>
+      <div class="product-desc">The next Cypher Works product is in development.</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="about">
+  <div class="section-label" style="margin-bottom: 24px;">About</div>
+  <p>Cypher Works is a Delaware LLC that builds intelligent software products. We start with deep domain knowledge, identify decisions that are harder than they need to be, and build tools that change that. BeforeYouBid.ai is our first product.</p>
+</section>
+
+<footer>
+  <span class="wordmark">Cypher Works</span>
+  <a href="mailto:hello@cypherworks.ai">hello@cypherworks.ai</a>
+  <p>&copy; 2026 Cypher Works LLC</p>
+</footer>
+
+</body>
+</html>
