@@ -3,268 +3,366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[ cypher works ] — Intelligent Products</title>
-<meta name="description" content="Cypher Works builds intelligent products. Based in Connecticut. cypherworks.ai">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<title>Cypher Works — Decision Intelligence</title>
+<meta name="description" content="Cypher Works is a small studio building AI-native products that help people make better decisions in complex markets.">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect width='72' height='72' x='4' y='4' rx='14' fill='%230F0F0E'/><text x='10' y='54' font-family='system-ui' font-weight='700' font-size='42' fill='%23B8922A'>[</text><text x='41' y='51' font-family='system-ui' font-weight='700' font-size='22' fill='white' text-anchor='middle'>cw</text><text x='56' y='54' font-family='system-ui' font-weight='700' font-size='42' fill='%23B8922A'>]</text></svg>">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { font-size: 16px; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
-    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    background: #ffffff;
-    color: #1A1814;
+    font-family: 'IBM Plex Mono', monospace;
+    background: #F6F6F6;
+    color: #0F0E0C;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
 
-  nav {
+  .serif { font-family: 'Libre Baskerville', Georgia, serif; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #E4E4E4;
+  }
+
+  /* Header */
+  header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 48px;
-    border-bottom: 0.5px solid rgba(26,24,20,0.08);
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 100;
+    padding: 32px 0;
+    border-bottom: 1px solid #E4E4E4;
   }
 
   .wordmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .wordmark-glyph {
     font-size: 20px;
-    font-weight: 800;
-    color: #1A1814;
-    letter-spacing: -0.02em;
+    color: #0F0E0C;
+    line-height: 1;
+  }
+
+  .wordmark-text {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #0F0E0C;
+  }
+
+  nav {
+    display: flex;
+    gap: 36px;
+  }
+
+  nav a {
+    font-size: 12px;
+    font-weight: 400;
+    color: #5E5E5E;
     text-decoration: none;
+    letter-spacing: 0.02em;
   }
 
-  nav a.contact {
-    font-size: 13px;
-    color: rgba(26,24,20,0.45);
-    text-decoration: none;
-  }
+  nav a:hover { color: #0F0E0C; }
 
-  nav a.contact:hover {
-    color: #1A1814;
-  }
-
+  /* Hero */
   .hero {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 120px 48px 96px;
-  }
-
-  .hero-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(26,24,20,0.35);
-    margin-bottom: 24px;
+    padding: 96px 0 88px;
   }
 
   .hero h1 {
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
-    color: #1A1814;
-    margin-bottom: 28px;
-  }
-
-  .hero p {
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(26,24,20,0.55);
-    line-height: 1.65;
-    max-width: 480px;
-  }
-
-  .divider {
-    border: none;
-    border-top: 0.5px solid rgba(26,24,20,0.08);
-    margin: 0 48px;
-  }
-
-  .products {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 80px 48px;
-  }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(26,24,20,0.35);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(40px, 5.5vw, 72px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #0F0E0C;
+    max-width: 720px;
     margin-bottom: 40px;
   }
 
-  .product-grid {
+  .hero p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #5E5E5E;
+    line-height: 1.75;
+    max-width: 480px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Two-col sections */
+  .section {
+    padding: 72px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5E5E5E;
+    padding-top: 3px;
+  }
+
+  .section-body p {
+    font-size: 15px;
+    font-weight: 300;
+    color: #0F0E0C;
+    line-height: 1.8;
+    max-width: 520px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Our Model */
+  .model-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .model-item {
+    display: flex;
+    align-items: baseline;
     gap: 16px;
   }
 
-  .product-card {
-    border: 0.5px solid rgba(26,24,20,0.1);
-    border-radius: 16px;
-    padding: 32px;
-    text-decoration: none;
-    display: block;
-    transition: border-color 0.15s;
+  .model-glyph {
+    font-size: 12px;
+    color: #5E5E5E;
+    width: 16px;
+    flex-shrink: 0;
   }
 
-  .product-card:hover {
-    border-color: rgba(26,24,20,0.3);
+  .model-text {
+    font-size: 15px;
+    font-weight: 400;
+    color: #0F0E0C;
+    letter-spacing: 0.01em;
   }
 
-  .product-card.coming {
-    opacity: 0.5;
-    cursor: default;
+  /* Why It Works */
+  .why-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
   }
 
-  .product-card.coming:hover {
-    border-color: rgba(26,24,20,0.1);
-  }
-
-  .product-tag {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(26,24,20,0.35);
-    margin-bottom: 16px;
-  }
-
-  .product-card.live .product-tag {
-    color: #1A1814;
-  }
-
-  .product-name {
+  .why-body p {
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 20px;
-    font-weight: 700;
-    color: #1A1814;
-    letter-spacing: -0.01em;
-    margin-bottom: 10px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
   }
 
-  .product-desc {
+  .why-body p:first-child { color: #0F0E0C; }
+  .why-body p:last-child  { color: #5E5E5E; }
+
+  /* Companies */
+  .company-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .company-name span:first-child {
     font-size: 14px;
-    font-weight: 300;
-    color: rgba(26,24,20,0.55);
-    line-height: 1.6;
-    margin-bottom: 24px;
+    color: #0F0E0C;
   }
 
-  .product-link {
-    font-size: 13px;
+  .company-name span:last-child {
+    font-size: 15px;
     font-weight: 500;
-    color: #1A1814;
+    color: #0F0E0C;
+    letter-spacing: 0.01em;
   }
 
-  .about {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 48px 96px;
-    border-top: 0.5px solid rgba(26,24,20,0.08);
-    padding-top: 80px;
-  }
-
-  .about p {
-    font-size: 17px;
+  .company-desc {
+    font-size: 13px;
     font-weight: 300;
-    color: rgba(26,24,20,0.65);
-    line-height: 1.75;
-    max-width: 560px;
+    color: #5E5E5E;
+    line-height: 1.7;
+    margin-bottom: 8px;
   }
 
+  .company-tagline {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #5E5E5E;
+    margin-bottom: 20px;
+  }
+
+  .company-link {
+    font-size: 12px;
+    font-weight: 400;
+    color: #0F0E0C;
+    text-decoration: none;
+    border-bottom: 1px solid #0F0E0C;
+    padding-bottom: 1px;
+    letter-spacing: 0.02em;
+  }
+
+  .company-link:hover { color: #5E5E5E; border-color: #5E5E5E; }
+
+  /* Footer */
   footer {
-    border-top: 0.5px solid rgba(26,24,20,0.08);
-    padding: 32px 48px;
+    border-top: 1px solid #E4E4E4;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    padding: 32px 0;
     flex-wrap: wrap;
+    gap: 16px;
   }
 
-  footer .wordmark {
-    font-size: 14px;
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  footer p {
+  .footer-left span:first-child {
+    font-size: 16px;
+    color: #5E5E5E;
+  }
+
+  .footer-left span:last-child {
     font-size: 12px;
-    color: rgba(26,24,20,0.3);
+    font-weight: 400;
+    color: #5E5E5E;
+    letter-spacing: 0.02em;
   }
 
-  footer a {
+  .footer-right {
     font-size: 12px;
-    color: rgba(26,24,20,0.3);
-    text-decoration: none;
+    font-weight: 300;
+    color: #5E5E5E;
+    letter-spacing: 0.02em;
   }
 
-  footer a:hover {
-    color: #1A1814;
-  }
-
+  /* Mobile */
   @media (max-width: 640px) {
-    nav { padding: 20px 24px; }
-    .hero { padding: 72px 24px 64px; }
-    .divider { margin: 0 24px; }
-    .products { padding: 56px 24px; }
-    .about { padding: 56px 24px 72px; }
-    footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .wrap { padding: 0 20px; }
+    nav { gap: 20px; }
+    .hero { padding: 64px 0 56px; }
+    .section {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 56px 0;
+    }
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-
-<nav>
-  <span class="wordmark"><span style="font-weight:300;color:#B8922A;">[ </span>cypher works<span style="font-weight:300;color:#B8922A;"> ]</span></span>
-  <a href="mailto:hello@cypherworks.ai" class="contact">hello@cypherworks.ai</a>
-</nav>
-
-<section class="hero">
-  <h1>Intelligent<br>products.</h1>
-  <p>We build technology for high-stakes decisions. AI-powered tools for markets where transparency is broken and the cost of getting it wrong is real. People are spending serious money with almost no reliable data. We think that's a problem worth solving.</p>
-</section>
-
-<hr class="divider">
-
-<section class="products">
-  <div class="section-label">Products</div>
-  <div class="product-grid">
-
-    <a href="https://beforeyoubid.ai" target="_blank" class="product-card live">
-      <div class="product-tag">Live · 2026</div>
-      <div class="product-name">BeforeYouBid.ai</div>
-      <div class="product-desc">Pre-purchase intelligence for classic and enthusiast car buyers. Eight-section AI report on any listing in under 60 seconds.</div>
-      <div class="product-link">beforeyoubid.ai →</div>
+  <header>
+    <a class="wordmark" href="/">
+      <span class="wordmark-glyph">▦</span>
+      <span class="wordmark-text">Cypher Works</span>
     </a>
+    <nav>
+      <a href="#companies">Companies</a>
+      <a href="#approach">Approach</a>
+      <a href="mailto:hello@cypherworks.ai">Contact</a>
+    </nav>
+  </header>
 
-    <div class="product-card coming">
-      <div class="product-tag">In Development</div>
-      <div class="product-name">Collectorgrade.ai</div>
-      <div class="product-desc">The definitive guide for collectors venturing into new territory. Essential knowledge across the ten biggest collecting spheres.</div>
-      <div class="product-link">collectorgrade.ai</div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>We build decision<br>intelligence companies.</h1>
+    <p>Cypher Works is a small studio building AI-native products that help people make better decisions in complex markets.</p>
+  </section>
+
+  <hr>
+
+  <!-- What We Do -->
+  <div class="section" id="approach">
+    <div class="section-label">What We Do</div>
+    <div class="section-body">
+      <p>We identify large markets with broken transparency and build the intelligence layer people wish already existed.</p>
     </div>
-
   </div>
-</section>
 
-<section class="about">
-  <div class="section-label" style="margin-bottom: 24px;">About</div>
-  <p>Cypher Works builds intelligent software products. We start with deep domain knowledge, identify decisions that are harder than they need to be, and build tools that change that. BeforeYouBid.ai is our first product.</p>
-</section>
+  <hr>
 
-<footer>
-  <span class="wordmark"><span style="font-weight:300;color:#B8922A;">[ </span>cypher works<span style="font-weight:300;color:#B8922A;"> ]</span></span>
-  <a href="mailto:hello@cypherworks.ai">hello@cypherworks.ai</a>
-  <p>&copy; 2026 Cypher Works LLC · Delaware</p>
-</footer>
+  <!-- Our Model -->
+  <div class="section">
+    <div class="section-label">Our Model</div>
+    <div class="section-body">
+      <div class="model-list">
+        <div class="model-item">
+          <span class="model-glyph">π</span>
+          <span class="model-text">Existing supply.</span>
+        </div>
+        <div class="model-item">
+          <span class="model-glyph">□</span>
+          <span class="model-text">Better interface.</span>
+        </div>
+        <div class="model-item">
+          <span class="model-glyph">◆</span>
+          <span class="model-text">AI leverage.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <hr>
+
+  <!-- Why It Works -->
+  <div class="section">
+    <div class="section-label">Why It Works</div>
+    <div class="section-body">
+      <div class="why-body">
+        <p>The best companies do not replace markets.</p>
+        <p>They make markets easier to understand.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Companies -->
+  <div class="section" id="companies">
+    <div class="section-label">Current Company</div>
+    <div class="section-body">
+      <div class="company-name">
+        <span>▦</span>
+        <span>BeforeYouBid</span>
+      </div>
+      <p class="company-desc">AI intelligence for enthusiast car buyers.</p>
+      <p class="company-tagline">Know the car. Not just the listing.</p>
+      <a class="company-link" href="https://beforeyoubid.ai" target="_blank" rel="noopener noreferrer">beforeyoubid.ai →</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <footer>
+    <div class="footer-left">
+      <span>▦</span>
+      <span>Cypher Works</span>
+    </div>
+    <span class="footer-right">Decision intelligence companies.</span>
+  </footer>
+
+</div>
 </body>
 </html>
