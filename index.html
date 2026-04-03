@@ -220,21 +220,7 @@
 </style>
 </head>
 <body>
-<script>
-  (function() {
-    var PASS = "0004";
-    var SESSION_KEY = "cw_auth";
-    if (sessionStorage.getItem(SESSION_KEY) !== "1") {
-      var entered = prompt("[ cypher works ] — access code");
-      if (entered !== PASS) {
-        document.documentElement.innerHTML = "";
-        window.location.href = "about:blank";
-        return;
-      }
-      sessionStorage.setItem(SESSION_KEY, "1");
-    }
-  })();
-</script>
+
 
 <nav>
   <span class="wordmark"><span style="font-weight:300;color:#B8922A;">[ </span>cypher works<span style="font-weight:300;color:#B8922A;"> ]</span></span>
